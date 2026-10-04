@@ -1,0 +1,10 @@
+{
+  "name": "cr-ember-poc",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "ember-source": "^5.4.0",
+    "ember-cli": "^5.4.0",
+    "ember-template-lint": "^5.11.0"
+  }
+}

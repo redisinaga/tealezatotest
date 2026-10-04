@@ -1,0 +1,6 @@
+language: "en-US"
+reviews:
+  profile: assertive
+  tools:
+    emberTemplateLint:
+      enabled: true
